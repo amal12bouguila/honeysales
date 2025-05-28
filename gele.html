@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails du Produit</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ffecd2, #fcb69f);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .product-details {
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+            max-width: 400px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .product-details h2 {
+            font-size: 28px;
+            color: #9b7118;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .product-details p {
+            font-size: 18px;
+            color: #333;
+        }
+        .product-details img {
+            width: 220px;
+            height: auto;
+            border-radius: 15px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .product-details img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+        .add-to-cart-btn, .return-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 8px;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+            margin-top: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .add-to-cart-btn:hover, .return-btn:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        .add-to-cart-btn:active, .return-btn:active {
+            transform: scale(0.95);
+        }
+        .return-btn {
+            background-color: #007BFF;
+        }
+        .return-btn:hover {
+            background-color: #0056b3;
+        }
+        select {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="product-details">
+        <h2>Gelée Royale</h2>
+        <img src="gelee.jpg" alt="pol" style="width: 200px; height: auto;">
+        <p><strong>Description :</strong> La Gelée Royale est une substance nourrissante secrétée par les abeilles ouvrières et utilisée pour nourrir la reine des abeilles. Riche en nutriments essentiels comme les vitamines, les minéraux, les acides aminés et les antioxydants, la gelée royale est réputée pour ses propriétés revitalisantes et énergisantes.</p>
+        <h3>Prix :</h3>
+        <p><strong></strong> 18.000 TND pour 250g</p>
+        <p><strong></strong> 33.000 TND pour 500g</p>
+    
+        <label for="grammage">Choisissez le grammage :</label>
+        <select id="grammage" name="grammage">
+            <option value="250g">250g</option>
+            <option value="500g">500g</option>
+        </select>
+
+        <button class="add-to-cart-btn" onclick="ajouterAuPanier()">Ajouter au panier</button>
+
+        
+        <button class="return-btn" onclick="retourPagePrincipale()">Retour à la page principale</button>
+    </div>
+
+    <script>
+        function ajouterAuPanier() {
+            const grammage = document.getElementById('grammage').value;
+            const prix = grammage === '250g' ? 18 : 33; 
+            alert(`Produit ajouté au panier : Gelée Royale - ${grammage} - ${prix} TND`);
+        }
+
+        function retourPagePrincipale() {
+            
+            window.location.href = "site.html"; 
+        }
+    </script>
+</body>
+</html>
